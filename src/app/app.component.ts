@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Carousel, Dropdown, initTE } from 'tw-elements';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mg-angular';
+
+  ngOnInit() {
+    initTE({ Carousel, Dropdown });
+  }
 }

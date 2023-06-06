@@ -40,6 +40,7 @@ export class LanguageService {
     }else{
       document.documentElement.dir = 'ltr'
     }
+    document.documentElement.lang = lang;
   }
 
 }
