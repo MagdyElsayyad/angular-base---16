@@ -45,11 +45,14 @@ module.exports = {
       xl: "1440px",
     },
    
-    fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
-    },
+   
     extend: {
+      fontFamily: {
+        // Add a font for LTR
+        body: ["Poppins", "sans-serif"],
+        // Add a font for RTL
+        bodyRTL: ["Cairo", "sans-serif"],
+     },
       // spacing: {
       //   128: "32rem",
       //   144: "36rem",
@@ -61,6 +64,7 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss"),
+    require('tailwindcss-rtl'),
     require("autoprefixer"),
     require(path.resolve(__dirname, "src/helpers/tailwind/plugins/theming"))({
       themes,
