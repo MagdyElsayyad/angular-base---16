@@ -1,8 +1,19 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "cache": {
+      "enabled": false
+    },
+    "analytics": false,
+    "packageManager": "npm",
+    "warnings": {
+      "versionMismatch": true
+    }
+  },
   "newProjectRoot": "projects",
   "projects": {
+    
     "mg-angular": {
       "projectType": "application",
       "schematics": {
@@ -12,7 +23,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "mgmg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -26,7 +37,6 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
