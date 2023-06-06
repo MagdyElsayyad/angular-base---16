@@ -63,6 +63,7 @@ module.exports = {
     },
   },
   plugins: [
+    
     require("tailwindcss"),
     require('tailwindcss-rtl'),
     require("autoprefixer"),
