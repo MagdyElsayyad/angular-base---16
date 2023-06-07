@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FlowbiteModule } from 'flowbite-angular';
 
 @Component({
   selector: 'mgmg-topbar',
   standalone: true,
-  imports: [CommonModule, FlowbiteModule],
+  imports: [CommonModule],
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.scss']
 })

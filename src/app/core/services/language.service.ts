@@ -29,9 +29,8 @@ export class LanguageService {
     else {
       browserLang = translate.getBrowserLang();
     }
-    translate.use(browserLang.match(/en|ar/) ? browserLang : 'en');
+    this.setLanguage(browserLang.match(/en|ar/) ? browserLang : 'en');
   }
-
   public setLanguage(lang: string) {
     this.translate.use(lang);
     this.localStorageService.store('lang', lang);

@@ -32,8 +32,6 @@ const themes = {
   },
   // Rest of the themes will use the 'default' as the base theme
   // and extend them with their given configuration
- 
- 
 };
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
@@ -44,15 +42,14 @@ module.exports = {
       lg: "976px",
       xl: "1440px",
     },
-   
-   
+
     extend: {
       fontFamily: {
         // Add a font for LTR
         body: ["Poppins", "sans-serif"],
         // Add a font for RTL
         bodyRTL: ["Cairo", "sans-serif"],
-     },
+      },
       // spacing: {
       //   128: "32rem",
       //   144: "36rem",
@@ -63,12 +60,47 @@ module.exports = {
     },
   },
   plugins: [
-    
     require("tailwindcss"),
-    require('tailwindcss-rtl'),
+    require("daisyui"),
+    require("tailwindcss-rtl"),
     require("autoprefixer"),
     require(path.resolve(__dirname, "src/helpers/tailwind/plugins/theming"))({
       themes,
     }),
   ],
+
+  // daisyUI config (optional - here are the default values)
+  daisyui: {
+    themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
+    darkTheme: "mytheme", // name of one of the included themes for dark mode
+    base: false, // applies background color and foreground color for root element by default
+    styled: true, // include daisyUI colors and design decisions for all components
+    utils: true, // adds responsive and modifier utility classes
+    rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
+    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
+    themes: [
+      {
+        mytheme: {
+          primary: themes.default.primary.DEFAULT,
+
+          secondary: themes.default.accent.DEFAULT,
+
+          accent:  themes.default.accent.DEFAULT,
+
+          neutral: "#2b3440",
+
+          "base-100": "#ffffff",
+
+          info: "#3abff8",
+
+          success: colors.green[50],
+
+          warning: colors.yellow[50],
+
+          error: themes.default.warn.DEFAULT,
+        },
+      },
+    ],
+  },
 };
