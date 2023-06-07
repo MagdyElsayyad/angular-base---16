@@ -8,6 +8,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 export class TranslationLoader implements TranslateLoader {
   constructor(private http: HttpClient){
     
@@ -33,6 +34,7 @@ export class TranslationLoader implements TranslateLoader {
       }
     }),
     NgxWebstorageModule.forRoot(),
+    LoaderComponent,
     AppRoutingModule
   ],
   providers: [],
