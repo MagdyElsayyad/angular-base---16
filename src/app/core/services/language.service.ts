@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Signal, WritableSignal, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from 'ngx-webstorage';
 
@@ -17,10 +17,16 @@ export class LanguageService {
     },
   };
 
+  public langsArr: any[] = []
+  private _currentLang: WritableSignal<string> =  signal("");
+  public get currentLang() : Signal<string>{
+    return this._currentLang.asReadonly();
+  }
   constructor(
     public translate: TranslateService,
      private localStorageService: LocalStorageService
      ) {
+      this.langsArr = Object.values(this.languages);
     let browserLang;
     this.translate.addLangs(Object.keys(this.languages));
     if (this.localStorageService.retrieve('lang')) {
@@ -34,6 +40,7 @@ export class LanguageService {
   public setLanguage(lang: string) {
     this.translate.use(lang);
     this.localStorageService.store('lang', lang);
+    this._currentLang.set(lang);
     if(this.languages.ar.code === lang){
       document.documentElement.dir = 'rtl'
     }else{

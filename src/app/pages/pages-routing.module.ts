@@ -11,7 +11,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: StarterComponent
+        component: StarterComponent,
+        data: {
+          roles: [],
+          title: ''
+        }
       }
     ]
   }
