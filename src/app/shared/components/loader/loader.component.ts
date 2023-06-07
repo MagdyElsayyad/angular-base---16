@@ -1,6 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { LoaderService } from 'src/app/core/services/loader.service';
+
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoaderService {
+
+  public isLoading = new BehaviorSubject(false);
+    
+  constructor() { }
+}
 
 @Component({
   selector: 'mgmg-loader',

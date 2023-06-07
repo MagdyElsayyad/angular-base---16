@@ -7,6 +7,8 @@
 #### Create your pages in pages/
 #### Add your extra layouts in /layouts
 #### Use services in core/services
+#### set auth service & interceptors
+#### specify languages in languages.service
 
 ## Add Fonts: 
 
